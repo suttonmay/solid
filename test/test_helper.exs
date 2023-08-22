@@ -1,5 +1,5 @@
 ExUnit.start()
-{:module, _} = Code.ensure_compiled(Solid.CustomFilters)
+# {:module, _} = Code.ensure_compiled(Solid.CustomFilters)
 
 defmodule Solid.Helpers do
   def render(text, hash \\ %{}, options \\ []) do

@@ -8,6 +8,13 @@ defmodule Solid.Integration.CustomFiltersTest do
   end
 
   describe "custom filters" do
+    test "add one" do
+      assert "{{ number | add_one }}"
+             |> Solid.parse!()
+             |> Solid.render!(%{"number" => 1}, custom_filters: Solid.TestFilter) ==
+               ["2"]
+    end
+
     test "date year filter", %{opts: opts, date: date} do
       assert render("{{ date_var | date_year }}", %{"date_var" => date}, opts) == "2019"
     end
